@@ -1,0 +1,7 @@
+# ~ dotfiles
+copycontent zsh %HOME
+copycontent vim %HOME
+copycontent git %HOME
+
+# Directories
+copyfulldir nvim %HOME/.config/nvim
