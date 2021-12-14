@@ -1,0 +1,8 @@
+[user]
+	name = LMBishop
+	email = 13875753+LMBishop@users.noreply.github.com
+	signingkey = CBC4F221D82C72F9
+[gpg]
+	program = gpg
+[core]
+	excludesfile = /Users/leonardo/.gitignore_global
