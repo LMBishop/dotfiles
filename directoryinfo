@@ -5,4 +5,5 @@ copycontent git %HOME
 copycontent bash %HOME
 
 # Directories
+copyfulldir iterm2 %HOME/.iterm2
 copyfulldir nvim %HOME/.config/nvim
