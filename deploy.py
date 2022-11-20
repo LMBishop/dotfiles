@@ -4,6 +4,7 @@ import os
 from util.runners import run_step
 from util.exceptions import StepFailedError
 from util.helpers import check_preconditions
+from util.prompt import query_yes_no
 
 import yaml
 from termcolor import colored
@@ -45,6 +46,9 @@ print("Sections to run: " + ", ".join(
     map(lambda x: colored(x, "green"), sections.keys())
 ))
 print()
+
+if not query_yes_no("Proceed with install?", False):
+    exit(1)
 
 section_count = 0
 total = len(sections.keys())
