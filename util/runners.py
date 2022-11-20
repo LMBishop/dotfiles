@@ -25,5 +25,10 @@ def do_link(source, destination):
     print(f"Linking {source} -> {destination}")
     try:
         os.link(source, destination)
+    except OSError as e:
+        if e.errno == 17:
+            print(f"File {destination} already exists")
+        else:
+            raise StepFailedError("Link raised exeption: " + str(e)) from e
     except Exception as e:
         raise StepFailedError("Link raised exeption: " + str(e)) from e
