@@ -1,0 +1,2 @@
+class StepFailedError(Exception):
+    pass

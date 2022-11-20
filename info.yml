@@ -1,0 +1,95 @@
+sections:
+
+  # Installs brew on macOS
+  install-brew:
+    preconditions:
+      os: "macos"
+      not-installed:
+        - "brew"
+    steps:
+      - ==: run
+        command: "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+
+  # Install oh-my-zsh
+  install-oh-my-zsh:
+    tags: ["config"]
+    preconditions:
+      not-present:
+        - ~/.oh-my-zsh
+    steps:
+      - ==: run
+        command: "sh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
+
+  # Copy zsh configurations
+  configure-zsh:
+    tags: ["config"]
+    directory: "zsh"
+    steps:
+      - ==: link 
+        from: .zshrc
+        to: ~/.zshrc
+      - ==: run
+        command: "mkdir -p ~/.config/zsh"
+      - ==: link 
+        from: config/aliases.zsh
+        to: ~/.config/zsh/aliases.zsh
+      - ==: link 
+        from: config/environment.zsh
+        to: ~/.config/zsh/environment.zsh
+      - ==: link 
+        from: config/prompt.zsh
+        to: ~/.config/zsh/prompt.zsh
+    notes:
+      - "Remember to change shell to zsh"
+
+  # Copy vim configurations
+  configure-vim:
+    directory: "vim"
+    tags: ["config"]
+    steps:
+      - ==: run
+        command: "mkdir -p ~/.config/nvim/"
+      - ==: run
+        command: "mkdir -p ~/.config/nvim/lua"
+      - ==: link
+        from: .vimrc
+        to: ~/.vimrc
+      - ==: link
+        from: nvim/init.lua
+        to: ~/.config/nvim/init.lua
+      - ==: link
+        from: nvim/lua/plugins.lua
+        to: ~/.config/nvim/lua/plugins.lua
+    notes:
+      - "For nvim, run :PackerInstall"
+  
+  # Copy iterm2 configurations for macOS
+  configure-iterm2:
+    directory: "iterm2"
+    tags: ["config"]
+    preconditions:
+      os: "macos"
+
+  # Copy iterm2 configurations for macOS
+  configure-git:
+    directory: "git"
+    tags: ["config"]
+    steps:
+      - ==: link
+        preconditions:
+          os: "macos"
+        from: .gitconfig-macos
+        to: ~/.gitconfig
+      - ==: link
+        from: .gitignore_global
+        to: ~/.gitignore_global
+
+  # Copy tmux configurations
+  configure-tmux:
+    directory: "tmux"
+    tags: ["config"]
+    steps:
+      - ==: link
+        from: tmux.conf
+        to: ~/.tmux.conf
+

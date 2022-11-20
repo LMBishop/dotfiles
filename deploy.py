@@ -1,45 +1,60 @@
 #!/usr/bin/python3
-from os import listdir
-from os.path import isfile, join, abspath 
-from shutil import copy2 
-from pathlib import Path
+import os
 
-home = str(Path.home())
-contents = dict()
-directory = dict()
+from util.runners import run_step
+from util.exceptions import StepFailedError
+from util.helpers import check_preconditions
 
-with open('directoryinfo') as f:
-    lines = f.readlines()
-    for line in lines:
-        line = line.replace('%HOME', home)
+import yaml
+from termcolor import colored
 
-        if (line.isspace()):
+CWD = os.getcwd()
+
+
+def get_sections_meeting_preconditions(yaml):
+    sections = {}
+    for key, section in yaml["sections"].items():
+        if not check_preconditions(section):
             continue
 
-        if (line.startswith('#')):
+        sections[key] = section
+
+    return sections
+
+
+def run_section(title, section):
+    os.chdir(CWD)
+    if "directory" in section:
+        os.chdir(section["directory"])
+    elif os.path.exists(title):
+        os.chdir(title)
+
+    for step in section["steps"]:
+        if not check_preconditions(step):
             continue
 
-        parts = line.split()
-        if parts[0] == 'copycontent':
-            contents[parts[1]] = parts[2]
-        elif parts[0] == 'copyfulldir':
-            directory[parts[1]] = parts[2]
-        else:
-            print(f'directoryinfo: unknown directive \'{parts[0]}\'')
+        run_step(step)
 
-# Directive: copycontent
-for d, t in contents.items():
-    files = [f for f in listdir(d) if isfile(join(d, f))]
-    for file in files:
-        print(f'Copying {abspath(join(d, file))} to {abspath(join(t, file))}')
-        copy2(abspath(join(d, file)), join(t, file))
 
-# Directive: copyfulldir
-for d, t in directory.items():
-    files = [f for f in listdir(d) if isfile(join(d, f))]
-    print(f'Creating {t}')
-    Path(t).mkdir(parents=True, exist_ok=True)
-    for file in files:
-        print(f'Copying {abspath(join(d, file))} to {join(t, file)}')
-        copy2(abspath(join(d, file)), join(t, file))
+with open("info.yml", "r") as f:
+    yaml = yaml.safe_load(f)
 
+sections = get_sections_meeting_preconditions(yaml)
+
+print("Sections to run: " + ", ".join(
+    map(lambda x: colored(x, "green"), sections.keys())
+))
+print()
+
+section_count = 0
+total = len(sections.keys())
+for key, section in sections.items():
+    section_count += 1
+    print(colored(f"[{section_count}/{total}] ", "white", attrs=["bold"])
+          + "Section "
+          + colored(key, "green"))
+    try:
+        run_section(key, section)
+    except StepFailedError as e:
+        print(colored("Step failed: ", "red") + str(e))
+    print()
