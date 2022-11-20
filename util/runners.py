@@ -4,6 +4,7 @@ from util.exceptions import StepFailedError
 from termcolor import colored
 
 HOME = os.getenv("HOME")
+OVERWRITE_FILES = os.getenv("OVERWRITE_FILES")
 
 
 def run_step(step):
@@ -24,12 +25,17 @@ def do_run(command):
 def do_link(source, destination):
     destination = re.sub(r"^~/", HOME + "/", destination)
     print(f"Linking {source} -> {destination}")
+    if os.path.exists(destination):
+        if OVERWRITE_FILES == "1":
+            os.remove(destination)
+            print(colored("  (File overwritten)", "yellow"))
+        else:
+            print(colored("  (File already exists)", "yellow"))
+            return
+
     try:
         os.link(source, destination)
     except OSError as e:
-        if e.errno == 17:
-            print(colored("  (File already exists)", "yellow"))
-        else:
-            raise StepFailedError("Link raised exeption: " + str(e)) from e
+        raise StepFailedError("Link raised exeption: " + str(e)) from e
     except Exception as e:
         raise StepFailedError("Link raised exeption: " + str(e)) from e

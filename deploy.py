@@ -10,6 +10,7 @@ import yaml
 from termcolor import colored
 
 CWD = os.getcwd()
+OVERWRITE_FILES = os.getenv("OVERWRITE_FILES")
 
 
 def get_sections_meeting_preconditions(yaml):
@@ -46,6 +47,10 @@ print("Sections to run: " + ", ".join(
     map(lambda x: colored(x, "green"), sections.keys())
 ))
 print()
+
+if OVERWRITE_FILES == "1":
+    print(colored("Warning: ", "red") + "you have requested overwrite mode!")
+    print()
 
 if not query_yes_no("Proceed with install?", False):
     exit(1)
