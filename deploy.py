@@ -48,6 +48,7 @@ print()
 
 section_count = 0
 total = len(sections.keys())
+notes = {}
 for key, section in sections.items():
     section_count += 1
     print(colored(f"[{section_count}/{total}] ", "white", attrs=["bold"])
@@ -55,6 +56,17 @@ for key, section in sections.items():
           + colored(key, "green"))
     try:
         run_section(key, section)
+        if "notes" in section:
+            notes[key] = section["notes"]
     except StepFailedError as e:
         print(colored("Step failed: ", "red") + str(e))
     print()
+
+if len(notes) > 0:
+    print(colored(f"[Notes]", "white", attrs=["bold"]))
+    print()
+    for key, note in notes.items():
+        print("From " + colored(key, "green") + ":")
+        for message in note:
+            print(f"- {message}")
+        print()
