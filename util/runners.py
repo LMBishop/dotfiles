@@ -1,6 +1,7 @@
 import os
 import re
 from util.exceptions import StepFailedError
+from termcolor import colored
 
 HOME = os.getenv("HOME")
 
@@ -27,7 +28,7 @@ def do_link(source, destination):
         os.link(source, destination)
     except OSError as e:
         if e.errno == 17:
-            print(f"File {destination} already exists")
+            print(colored("  (File already exists)", "yellow"))
         else:
             raise StepFailedError("Link raised exeption: " + str(e)) from e
     except Exception as e:
