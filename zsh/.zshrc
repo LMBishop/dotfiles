@@ -19,5 +19,6 @@ foreach file (`echo $sources`)
 end
 
 # ===============================
-# source $ZSH_CONFIG/ephemeral.zsh
-
+for file in $ZSH_CONFIG/other/*; do
+    source "$file"
+done

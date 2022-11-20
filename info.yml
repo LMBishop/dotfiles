@@ -39,6 +39,8 @@ sections:
       - ==: link 
         from: config/prompt.zsh
         to: ~/.config/zsh/prompt.zsh
+      - ==: run
+        command: "mkdir -p ~/.config/zsh/other"
     notes:
       - "Remember to change shell to zsh"
 
@@ -68,7 +70,7 @@ sections:
     directory: "iterm2"
     tags: ["config"]
     preconditions:
-      os: "macos"
+      os: "macosdsakjghajsdhlsjg"
 
   # Copy iterm2 configurations for macOS
   configure-git:
