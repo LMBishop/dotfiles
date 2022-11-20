@@ -90,6 +90,6 @@ sections:
     tags: ["config"]
     steps:
       - ==: link
-        from: tmux.conf
+        from: .tmux.conf
         to: ~/.tmux.conf
 
