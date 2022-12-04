@@ -7,6 +7,7 @@ syntax on
 
 set number
 highlight LineNr ctermfg=darkgrey
+highlight NormalFloat ctermbg=NONE
 
 filetype plugin indent on
 set tabstop=4
@@ -15,8 +16,13 @@ set expandtab
 
 set signcolumn=number
 let g:airline_theme='lucius'
+set termguicolors
+colorscheme darcula-solid
+
+highlight Comment cterm=italic gui=italic
 ]],
 false)
+-- 
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -99,8 +105,8 @@ vim.diagnostic.config({
     float = {
         show_header = true,
         source = 'if_many',
-        border = 'rounded',
         focusable = false,
+        transparent = true,
     },
     update_in_insert = true, -- default to false
     severity_sort = false, -- default to false
@@ -110,10 +116,10 @@ vim.api.nvim_exec([[ autocmd InsertEnter * :lua vim.diagnostic.config({virtual_t
 vim.api.nvim_exec([[ autocmd InsertLeave * :lua vim.diagnostic.config({virtual_text = false}) ]], false)
 vim.api.nvim_exec([[ autocmd CursorMoved * :lua vim.diagnostic.open_float({ silent=true }) ]], false)
 
-vim.api.nvim_set_hl(0, 'FloatBorder', {bg='None', fg='#FFFFFF'})
-vim.api.nvim_set_hl(0, 'NormalFloat', {bg='#3B4252'})
-vim.api.nvim_set_hl(0, 'TelescopeNormal', {bg='#3B4252'})
-vim.api.nvim_set_hl(0, 'TelescopeBorder', {bg='#3B4252'})
+-- vim.api.nvim_set_hl(0, 'FloatBorder', {bg='None', fg='#FFFFFF'})
+-- vim.api.nvim_set_hl(0, 'NormalFloat', {bg='#3B4252'})
+-- vim.api.nvim_set_hl(0, 'TelescopeNormal', {bg='#3B4252'})
+-- vim.api.nvim_set_hl(0, 'TelescopeBorder', {bg='#3B4252'})
 
 local luasnip = require 'luasnip'
 
@@ -166,8 +172,8 @@ cmp.setup {
     })
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered()
+	documentation = cmp.config.window.bordered(),
+	completion = cmp.config.window.bordered(),
   },
 }
 
@@ -216,3 +222,10 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = { "haskell" },
+  },
+}
