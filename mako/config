@@ -1,0 +1,13 @@
+sort=-time
+layer=overlay
+background-color=#1c1c1cf0
+width=400
+height=110
+border-size=0
+border-color=#4d4d4d
+icons=1
+icon-location=right
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+font=Iosevka Term 12

@@ -1,0 +1,49 @@
+font:
+  normal:
+    family: Iosevka Term
+    style: Regular
+  bold:
+    family: Iosevka Term
+    style: Bold
+  italic:
+    family: Iosevka Term
+    style: Italic
+  bold_italic:
+    family: Iosevka Term
+    style: Bold Italic
+  size: 11
+
+shell:
+  program: /usr/bin/zsh
+
+colors:
+  primary:
+    background: '#2b2b2b'
+    foreground: '#ffffff'
+
+    bright_background: '#2b2b2b'
+    bright_foreground: '#ffffff'
+
+  cursor:
+    text:    '#000000'
+    cursor:  '#fefefe'
+
+  normal:
+    black:   '#000000'
+    red:     '#fd6b67'
+    green:   '#097e00'
+    yellow:  '#ccca00'
+    blue:    '#5496ef'
+    magenta: '#fd75ff'
+    cyan:    '#39cbcc'
+    white:   '#f1f1f1'
+
+  bright:
+    black:   '#676767'
+    red:     '#fd8784'
+    green:   '#73f961'
+    yellow:  '#fefb00'
+    blue:    '#7eaff4'
+    magenta: '#fd9cff'
+    cyan:    '#6ed9d9'
+    white:   '#ffffff'

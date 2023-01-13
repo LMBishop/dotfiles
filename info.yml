@@ -102,3 +102,78 @@ sections:
         from: .tmux.conf
         to: ~/.tmux.conf
 
+  # Copy alacritty configurations
+  configure-alacritty:
+    directory: "alacritty"
+    tags: ["config"]
+    preconditions:
+      os: "linux"
+    steps:
+      - ==: run
+        command: "mkdir -p ~/.config/alacritty"
+      - ==: link
+        from: alacritty.yml
+        to: ~/.config/alacritty/alacritty.yml
+
+  # Copy mako configurations
+  configure-mako:
+    directory: "mako"
+    tags: ["config"]
+    preconditions:
+      os: "linux"
+    steps:
+      - ==: run
+        command: "mkdir -p ~/.config/mako"
+      - ==: link
+        from: config
+        to: ~/.config/mako/config
+
+  # Copy rofi configurations
+  configure-rofi:
+    directory: "rofi"
+    tags: ["config"]
+    preconditions:
+      os: "linux"
+    steps:
+      - ==: run
+        command: "mkdir -p ~/.config/rofi"
+      - ==: link
+        from: config.rasi
+        to: ~/.config/rofi/config.rasi
+
+  # Copy sway configurations
+  configure-sway:
+    directory: "sway"
+    tags: ["config"]
+    preconditions:
+      os: "linux"
+    steps:
+      - ==: run
+        command: "mkdir -p ~/.config/sway"
+      - ==: link
+        from: config
+        to: ~/.config/sway/config
+      - ==: link
+        from: wallpaper.jpg
+        to: ~/.config/sway/wallpaper.jpg
+
+  # Copy waybar configurations
+  configure-waybar:
+    directory: "waybar"
+    tags: ["config"]
+    preconditions:
+      os: "linux"
+    steps:
+      - ==: run
+        command: "mkdir -p ~/.config/waybar"
+      - ==: run
+        command: "mkdir -p ~/.config/waybar/scripts"
+      - ==: link
+        from: config
+        to: ~/.config/waybar/config
+      - ==: link
+        from: style.css
+        to: ~/.config/waybar/style.css
+      - ==: link
+        from: scripts/mediaplayer.py
+        to: ~/.config/waybar/scripts/mediaplayer.py

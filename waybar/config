@@ -1,0 +1,70 @@
+{
+    "height": 30, 
+    "spacing": 4, 
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-right": ["tray", "custom/spotify", "pulseaudio", "network", "cpu", "memory", "temperature", "clock"],
+    "custom/spotify": {
+        "exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+        "format": "{}",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{name}{icon}",
+        "format-icons": {
+            "1": ": terminal",
+            "2": ": firefox",
+            "3": ": discord",
+            "4": ": spotify",
+            "5": ": thunderbird",
+            "default": ""
+        }
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%d/%m/%Y  %H:%M:%S}",
+        "format-alt": "{:%Y-%m-%d}",
+        "interval": 1
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {used}/{total} GiB"
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "歷 {ipaddr}",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "歷 {ifname} (No IP)",
+        "format-disconnected": "歷 Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
+
