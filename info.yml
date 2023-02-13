@@ -156,6 +156,10 @@ sections:
       - ==: link
         from: wallpaper.jpg
         to: ~/.config/sway/wallpaper.jpg
+      - ==: run
+        command: "cp input.cfg ~/.conifg/sway/input.cfg"
+      - ==: run
+        command: "cp output.cfg ~/.conifg/sway/output.cfg"
 
   # Copy waybar configurations
   configure-waybar:
