@@ -51,11 +51,20 @@ workspace 3 output $monitor2 # discord
 workspace 4 output $monitor2 # spotify
 workspace 5 output $monitor1 # thunderbird
 
+#############
+#  Windows  #
+#############
+
+for_window [app_id="termfloat"] floating enable
+for_window [app_id="termfloat"] resize set height 500
+for_window [app_id="termfloat"] resize set width 900
+
 ##############
 #  Keybinds  #
 ##############
 
 bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $term --class="termfloat"
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -139,8 +148,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Screenshot
-bindsym Print exec /usr/share/sway/scripts/grimshot copy area
-bindsym $mod+Shift+equal exec /usr/share/sway/scripts/grimshot copy area
+bindsym Print exec /usr/share/sway/scripts/grimshot --notify copy area
+bindsym $mod+Shift+equal exec /usr/share/sway/scripts/grimshot --notify copy area
 
 bindsym $mod+bracketleft exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+bracketright exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -171,6 +180,8 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 # Swayidle
 exec swayidle -w \
     before-sleep "swaylock"
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Chromium hotkey fix
 for_window [app_id="^chrome-.*-.*$"] shortcuts_inhibitor disable

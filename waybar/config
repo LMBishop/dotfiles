@@ -2,7 +2,7 @@
     "height": 30, 
     "spacing": 4, 
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["tray", "custom/spotify", "idle_inhibitor", "network", "cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
+    "modules-right": ["tray", "idle_inhibitor", "custom/scratchpad_indicator", "network", "cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
     "custom/spotify": {
         "exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
         "format": "{}",
@@ -26,6 +26,13 @@
     },
     "tray": {
         "spacing": 10
+    },
+    "custom/scratchpad_indicator": {
+        "interval": 3,
+        "exec": "swaymsg -t get_tree | ~/.config/waybar/scripts/scratchpads.py",
+        "format": "  {} ",
+        "on-click": "swaymsg 'scratchpad show'",
+        "on-click-right": "swaymsg 'move scratchpad'"
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -69,10 +76,10 @@
     "pulseaudio": {
         "format": "{icon} {volume}%  {format_source}",
         "format-bluetooth": " {volume}%  {format_source}",
-        "format-bluetooth-muted": " 婢  {format_source}",
-        "format-muted": "婢 {format_source}",
+        "format-bluetooth-muted": " 0% {format_source}",
+        "format-muted": "婢0% {format_source}",
         "format-source": " {volume}%",
-        "format-source-muted": " ",
+        "format-source-muted": " 0%",
         "format-icons": {
             "headphone": " ",
             "hands-free": "",
@@ -87,10 +94,10 @@
         "scroll-step": 0.5
     },
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "{icon} ",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " "
         }
 	}
 }
