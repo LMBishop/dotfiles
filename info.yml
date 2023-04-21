@@ -181,3 +181,17 @@ sections:
       - ==: link
         from: scripts/mediaplayer.py
         to: ~/.config/waybar/scripts/mediaplayer.py
+
+  # Copy swaylock configurations
+  configure-swaylock:
+    directory: "swaylock"
+    tags: ["config"]
+    preconditions:
+      os: "linux"
+    steps:
+      - ==: run
+        command: "mkdir -p ~/.config/swaylock"
+      - ==: link
+        from: config
+        to: ~/.config/swaylock/config
+

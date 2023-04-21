@@ -2,7 +2,11 @@
     "height": 30, 
     "spacing": 4, 
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["tray", "idle_inhibitor", "custom/scratchpad_indicator", "network", "cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
+    "modules-right": ["tray", "custom/lock", "custom/scratchpad_indicator", "network", "cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
+    "custom/lock": {
+        "format": " ",
+        "on-click": "swaylock"
+    },
     "custom/spotify": {
         "exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
         "format": "{}",
