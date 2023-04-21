@@ -140,7 +140,8 @@ bindsym $mod+minus scratchpad show
 
 # Screenshot
 bindsym Print exec /usr/share/sway/scripts/grimshot copy area
-bindsym $mod+Shift+equal exec /usr/share/sway/scripts/grimshot copy area
+bindsym $mod+Shift+equal exec /usr/share/sway/scripts/grimshot --notify copy area
+bindsym $mod+Control+equal exec /usr/share/sway/scripts/grimshot --notify save area
 
 bindsym $mod+bracketleft exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+bracketright exec pactl set-sink-volume @DEFAULT_SINK@ +5%

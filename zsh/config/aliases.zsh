@@ -16,3 +16,5 @@ alias lx="exa -lbhHigUmuSa@ --icons --time-style=long-iso --git --color-scale"
 alias lS="exa -1"                                                             
 alias lt="exa --tree --level=2"                                        
 
+# ParUI
+alias pi="parui -p=yay"
