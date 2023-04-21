@@ -4,7 +4,7 @@
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-right": ["tray", "custom/lock", "custom/scratchpad_indicator", "network", "cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
     "custom/lock": {
-        "format": " ",
+        "format": "   ",
         "on-click": "swaylock"
     },
     "custom/spotify": {
@@ -32,7 +32,7 @@
         "spacing": 10
     },
     "custom/scratchpad_indicator": {
-        "interval": 3,
+        "interval": 1,
         "exec": "swaymsg -t get_tree | ~/.config/waybar/scripts/scratchpads.py",
         "format": "  {} ",
         "on-click": "swaymsg 'scratchpad show'",
@@ -40,7 +40,7 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%d/%m/%Y  %H:%M:%S}",
+        "format": "{:%d %b  %H:%M:%S}",
         "format-alt": "{:%Y-%m-%d}",
         "timezone": "Europe/London",
         "interval": 1
