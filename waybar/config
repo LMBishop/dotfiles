@@ -2,7 +2,7 @@
     "height": 30, 
     "spacing": 4, 
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["tray", "custom/lock", "custom/scratchpad_indicator", "network", "cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
+    "modules-right": ["tray", "custom/lock", "custom/scratchpad_indicator", "network#vpnovpn", "network#vpnwg", "network#e", "network#wl", "network", "cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
     "custom/lock": {
         "format": "   ",
         "on-click": "swaylock"
@@ -69,13 +69,39 @@
         "format": "  {used}/{total} GiB"
     },
     "network": {
-        "format-wifi": "  {ipaddr} @ {essid} ({signalStrength}%)",
-        "format-ethernet": "歷 {ipaddr}",
-        "tooltip-format": "  {ifname} via {gwaddr}",
-        "format-linked": "歷 {ifname} (No IP)",
-        "format-disconnected": "歷 Disconnected",
+        "format-disconnected": "󱘖  Disconnected",
+        "format": "",
+        "on-click-right": "alacritty -e /usr/bin/nmtui",
+    },
+    "network#e": {
+        "interface": "e*",
+        "format": "󰈁",
+        "tooltip-format": "{ipaddr}: {ifname} via {gwaddr}",
+        "format-linked": "󰈂 {ifname} (No IP)",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click-right": "alacritty -e /usr/bin/nmtui",
+        "format-disconnected": "",
+    },
+    "network#wl": {
+        "interface": "wl*",
+        "format-wifi": "󰖩  {essid} ({signalStrength}%)",
+        "tooltip-format": "{ipaddr}: {ifname} via {gwaddr}",
+        "format-linked": "󰖪  {ifname} (No IP)",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "alacritty -e /usr/bin/nmtui",
+        "format-disconnected": "",
+    },
+    "network#vpnovpn": {
+        "interface": "tun*",
+        "format": "󰟥 TUN",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": "",
+    },
+    "network#vpnwg": {
+        "interface": "*-wg-*",
+        "format": "󰟥 WG",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": "",
     },
     "pulseaudio": {
         "format": "{icon} {volume}%  {format_source}",
