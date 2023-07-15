@@ -53,6 +53,8 @@ sections:
         command: "mkdir -p ~/.config/nvim/"
       - ==: run
         command: "mkdir -p ~/.config/nvim/lua"
+      - ==: run
+        command: "mkdir -p ~/.config/nvim/lua/config"
       - ==: link
         from: .vimrc
         to: ~/.vimrc
@@ -62,6 +64,24 @@ sections:
       - ==: link
         from: nvim/lua/plugins.lua
         to: ~/.config/nvim/lua/plugins.lua
+      - ==: link
+        from: nvim/lua/keybindings.lua
+        to: ~/.config/nvim/lua/keybindings.lua
+      - ==: link
+        from: nvim/lua/config/init.lua
+        to: ~/.config/nvim/lua/config/init.lua
+      - ==: link
+        from: nvim/lua/config/autocomplete.lua
+        to: ~/.config/nvim/lua/config/autocomplete.lua
+      - ==: link
+        from: nvim/lua/config/diagnostic.lua
+        to: ~/.config/nvim/lua/config/diagnostic.lua
+      - ==: link
+        from: nvim/lua/config/lsp.lua
+        to: ~/.config/nvim/lua/config/lsp.lua
+      - ==: link
+        from: nvim/lua/config/treesitter.lua
+        to: ~/.config/nvim/lua/config/treesitter.lua
     notes:
       - "For nvim, run :PackerInstall"
   
