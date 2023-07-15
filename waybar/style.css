@@ -5,9 +5,9 @@
 }
 
 window#waybar {
-    background-color: #1c1c1c;
+    background-color: #22282e;
     color: #ffffff;
-    border-bottom: 3px solid #4d4d4d;
+    border-bottom: 3px solid #434e59;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -38,7 +38,7 @@ button {
 }
 
 #workspaces button.focused {
-    background-color: #4d4d4d;
+    background-color: #434e59;
 }
 
 #workspaces button.urgent {
@@ -47,7 +47,7 @@ button {
 
 #mode {
     font-style: italic;
-    background-color: #4d4d4d;
+    background-color: #434e59;
 }
 
 #clock,

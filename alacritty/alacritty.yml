@@ -16,9 +16,15 @@ font:
 shell:
   program: /usr/bin/zsh
 
+window:
+  opacity: 0.95
+  padding:
+    x: 5
+    y: 5
+
 colors:
   primary:
-    background: '#2b2b2b'
+    background: '#27292b'
     foreground: '#ffffff'
 
     bright_background: '#2b2b2b'
@@ -36,7 +42,7 @@ colors:
     blue:    '#5496ef'
     magenta: '#fd75ff'
     cyan:    '#39cbcc'
-    white:   '#f1f1f1'
+    white:   '#eeeeee'
 
   bright:
     black:   '#676767'
@@ -46,4 +52,4 @@ colors:
     blue:    '#7eaff4'
     magenta: '#fd9cff'
     cyan:    '#6ed9d9'
-    white:   '#ffffff'
+    white:   '#eeeeee'

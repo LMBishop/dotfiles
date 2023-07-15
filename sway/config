@@ -8,7 +8,7 @@ set $down  j
 set $up    k
 set $right l
 set $term alacritty
-set $menu rofi -font "Iosevka Term Nerd Font 12" -show combi | xargs swaymsg exec
+set $menu rofi -font "Iosevka Nerd Font 12" -show combi | xargs swaymsg exec
 
 # Colours
 set $cl_high #4d4d4d
@@ -21,7 +21,7 @@ set $cl_urge #ee2e24
 #  Display  #
 #############
 
-font pango:Iosevka Term Nerd Font 11
+font pango:Iosevka Nerd Font 11
 
 gaps inner 15
 
