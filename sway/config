@@ -11,9 +11,9 @@ set $term alacritty
 set $menu rofi -font "Iosevka Nerd Font 12" -show combi | xargs swaymsg exec
 
 # Colours
-set $cl_high #4d4d4d
+set $cl_high #434e59
 set $cl_indi #d9d8d8
-set $cl_back #1c1c1c
+set $cl_back #22282e
 set $cl_fore #ffffff
 set $cl_urge #ee2e24
 
