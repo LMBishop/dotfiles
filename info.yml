@@ -149,17 +149,33 @@ sections:
         to: ~/.config/mako/config
 
   # Copy rofi configurations
-  configure-rofi:
-    directory: "rofi"
+  #configure-rofi:
+  #  directory: "rofi"
+  #  tags: ["config"]
+  #  preconditions:
+  #    os: "linux"
+  #  steps:
+  #    - ==: run
+  #      command: "mkdir -p ~/.config/rofi"
+  #    - ==: link
+  #      from: config.rasi
+  #      to: ~/.config/rofi/config.rasi
+
+  # Copy wofi configurations
+  configure-wofi:
+    directory: "wofi"
     tags: ["config"]
     preconditions:
       os: "linux"
     steps:
       - ==: run
-        command: "mkdir -p ~/.config/rofi"
+        command: "mkdir -p ~/.config/wofi"
       - ==: link
-        from: config.rasi
-        to: ~/.config/rofi/config.rasi
+        from: config
+        to: ~/.config/wofi/config
+      - ==: link
+        from: style.css
+        to: ~/.config/wofi/style.css
 
   # Copy sway configurations
   configure-sway:

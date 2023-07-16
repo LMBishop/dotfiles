@@ -8,7 +8,7 @@ set $down  j
 set $up    k
 set $right l
 set $term alacritty
-set $menu rofi -font "Iosevka Nerd Font 12" -show combi | xargs swaymsg exec
+set $menu wofi | xargs swaymsg exec
 
 # Colours
 set $cl_high #434e59

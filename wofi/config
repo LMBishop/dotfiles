@@ -1,0 +1,9 @@
+show=drun
+allow_images=true
+insensitive=true
+dynamic_lines=true
+no_actions=true
+location=2
+
+drun-display_generic=true
+drun-print_command=true
