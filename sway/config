@@ -8,7 +8,7 @@ set $down  j
 set $up    k
 set $right l
 set $term alacritty
-set $menu wofi | xargs swaymsg exec
+set $menu wofi
 
 # Colours
 set $cl_high #434e59
@@ -65,7 +65,7 @@ for_window [app_id="termfloat"] resize set width 900
 
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term --class="termfloat"
-bindsym $mod+d exec $menu
+bindsym $mod+d exec pgrep -x wofi >/dev/null 2>&1 && killall wofi || $menu
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
