@@ -185,7 +185,7 @@ sections:
       os: "linux"
     steps:
       - ==: run
-        command: "mkdir -p ~/.config/sway"
+        command: "mkdir -p ~/.config/sway/scripts"
       - ==: link
         from: config
         to: ~/.config/sway/config
@@ -196,6 +196,9 @@ sections:
         command: "cp input.cfg ~/.config/sway/input.cfg"
       - ==: run
         command: "cp output.cfg ~/.config/sway/output.cfg"
+      - ==: link
+        from: scripts/exit-menu.sh
+        to: ~/.config/sway/scripts/exit-menu.sh
 
   # Copy waybar configurations
   configure-waybar:
