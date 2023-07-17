@@ -33,3 +33,5 @@ text-ver-color=eeeeee
 text-wrong-color=eeeeee
 
 separator-color=00000000
+
+daemonize
