@@ -67,7 +67,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term --class="termfloat"
 bindsym $mod+d exec pgrep -x wofi >/dev/null 2>&1 && killall wofi || $menu
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec ~/.config/sway/scripts/exit-menu.sh
 
 # Politely quit
 bindsym $mod+q kill
