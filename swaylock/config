@@ -5,15 +5,17 @@ clock
 indicator
 show-failed-attempts
 
+fade-in=0.2
+
 indicator-radius=100
 indicator-thickness=7
 
 effect-blur=7x5
-effect-vignette=0.5:0.5
+effect-greyscale
 
 key-hl-color=dddddd
 
-ring-color=1c1c1c
+ring-color=22282e
 ring-ver-color=dddddd
 ring-wrong-color=ff4136
 
@@ -22,10 +24,10 @@ line-ver-color=00000000
 line-clear-color=00000000
 line-wrong-color=00000000
 
-inside-color=1c1c1c88
-inside-ver-color=1c1c1c88
-inside-clear-color=1c1c1c88
-inside-wrong-color=1c1c1c88
+inside-color=22282e88
+inside-ver-color=22282e88
+inside-clear-color=22282e88
+inside-wrong-color=22282e88
 
 text-color=eeeeee
 text-clear-color=eeeeee
