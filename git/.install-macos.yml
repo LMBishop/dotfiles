@@ -1,0 +1,10 @@
+name: Configure git (macOS)
+steps:
+  - !Link
+    from: ".gitignore_global"
+    to: "~/.gitignore_global"
+    recursive: false
+  - !Link
+    from: ".gitconfig-macos"
+    to: "~/.gitconfig"
+    recursive: false

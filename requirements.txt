@@ -1,2 +1,0 @@
-PyYAML==6.0
-termcolor==2.1.1

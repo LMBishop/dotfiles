@@ -1,0 +1,18 @@
+name: Configure zsh
+steps:
+  - !Link
+    from: ".zshrc"
+    to: "~/.zshrc"
+    recursive: false
+  - !Link
+    from: "config/aliases.zsh"
+    to: "~/.config/zsh/aliases.zsh"
+    recursive: false
+  - !Link
+    from: "config/environment.zsh"
+    to: "~/.config/zsh/environment.zsh"
+    recursive: false
+  - !Link
+    from: "config/prompt.zsh"
+    to: "~/.config/zsh/prompt.zsh"
+    recursive: false

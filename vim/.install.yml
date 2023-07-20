@@ -1,0 +1,41 @@
+name: Configure vim and nvim
+steps:
+  - !Link
+    from: ".vimrc"
+    to: "~/.vimrc"
+    recursive: false
+  - !Link
+    from: "nvim/init.lua"
+    to: "~/.config/nvim/init.lua"
+    recursive: false
+  - !Link
+    from: "nvim/lua/plugins.lua"
+    to: "~/.config/nvim/lua/plugins.lua"
+    recursive: false
+  - !Link
+    from: "nvim/lua/keybindings.lua"
+    to: "~/.config/nvim/lua/keybindings.lua"
+    recursive: false
+  - !Link
+    from: "nvim/lua/config/init.lua"
+    to: "~/.config/nvim/lua/config/init.lua"
+    recursive: false
+  - !Link
+    from: "nvim/lua/config/autocomplete.lua"
+    to: "~/.config/nvim/lua/config/autocomplete.lua"
+    recursive: false
+  - !Link
+    from: "nvim/lua/config/diagnostic.lua"
+    to: "~/.config/nvim/lua/config/diagnostic.lua"
+    recursive: false
+  - !Link
+    from: "nvim/lua/config/lsp.lua"
+    to: "~/.config/nvim/lua/config/lsp.lua"
+    recursive: false
+  - !Link
+    from: "nvim/lua/config/treesitter.lua"
+    to: "~/.config/nvim/lua/config/treesitter.lua"
+    recursive: false
+  
+  # Install packer
+  - !Shell "git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim"

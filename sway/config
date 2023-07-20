@@ -183,7 +183,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec swayidle -w \
     timeout 300 "notify-send 'Power' 'System will suspend very soon due to inactivity.'" \
     timeout 310 "swaylock" \
-    timeout 315 "systemctl suspend" \
+    timeout 313 "swaymsg 'output * power off'" resume "swaymsg 'output * power on'" \
     before-sleep "swaylock"
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

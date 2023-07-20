@@ -1,0 +1,16 @@
+stages:
+  - from_file: alacritty/.install.yml
+
+  - from_file: mako/.install.yml
+
+  - from_file: sway/.install.yml
+
+  - from_file: swaylock/.install.yml
+
+  - from_file: vim/.install.yml
+
+  - from_file: waybar/.install.yml
+
+  - from_file: wofi/.install.yml
+
+  - from_file: zsh/.install.yml

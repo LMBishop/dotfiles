@@ -1,0 +1,10 @@
+name: Configure wofi
+steps:
+  - !Link
+    from: "config"
+    to: "~/.config/wofi/config"
+    recursive: false
+  - !Link
+    from: "style.css"
+    to: "~/.config/wofi/style.css"
+    recursive: false

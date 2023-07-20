@@ -1,0 +1,8 @@
+stages:
+  - from_file: git/.install-macos.yml
+
+  - from_file: tmux/.install.yml
+
+  - from_file: vim/.install.yml
+
+  - from_file: zsh/.install.yml

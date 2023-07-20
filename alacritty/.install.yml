@@ -1,0 +1,6 @@
+name: Configure alacritty
+steps:
+  - !Link
+    from: "alacritty.yml"
+    to: "~/.config/alacritty/alacritty.yml"
+    recursive: false

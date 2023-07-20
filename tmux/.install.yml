@@ -1,0 +1,6 @@
+name: Configure tmux
+steps:
+  - !Link
+    from: ".tmux.conf"
+    to: "~/.tmux.conf"
+    recursive: false

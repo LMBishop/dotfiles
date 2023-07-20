@@ -1,0 +1,6 @@
+name: Configure mako
+steps:
+  - !Link
+    from: "config"
+    to: "~/.config/mako/config"
+    recursive: false

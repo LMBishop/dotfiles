@@ -1,0 +1,14 @@
+name: Configure waybar
+steps:
+  - !Link
+    from: "config"
+    to: "~/.config/waybar/config"
+    recursive: false
+  - !Link
+    from: "style.css"
+    to: "~/.config/waybar/style.css"
+    recursive: false
+  - !Link
+    from: "scripts/mediaplayer.py"
+    to: "~/.config/waybar/scripts/mediaplayer.py"
+    recursive: false

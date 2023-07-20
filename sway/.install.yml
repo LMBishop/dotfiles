@@ -1,0 +1,22 @@
+name: Configure sway
+steps:
+  - !Link
+    from: "config"
+    to: "~/.config/sway/config"
+    recursive: false
+  - !Link
+    from: "scripts/exit-menu.sh"
+    to: "~/.config/sway/scripts/exit-menu.sh"
+    recursive: false
+  - !Copy
+    from: "wallpaper.jpg"
+    to: "~/.config/sway/wallpaper.jpg"
+    recursive: false
+  - !Copy
+    from: "input.cfg"
+    to: "~/.config/sway/input.cfg"
+    recursive: false
+  - !Copy
+    from: "output.cfg"
+    to: "~/.config/sway/output.cfg"
+    recursive: false

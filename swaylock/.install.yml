@@ -1,0 +1,6 @@
+name: Configure swaylock
+steps:
+  - !Link
+    from: "config"
+    to: "~/.config/swaylock/config"
+    recursive: false
