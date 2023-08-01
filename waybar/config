@@ -2,6 +2,7 @@
     "height": 30, 
     "spacing": 4, 
     "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
     "modules-right": ["tray", "custom/lock", "custom/scratchpad_indicator", "network#vpnovpn", "network#vpnwg", "network#e", "network#wl", "network", "cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
     "custom/spotify": {
         "exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
@@ -14,14 +15,13 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
-        "format": "{name}{icon}",
-        "format-icons": {
-            "1": ": terminal",
-            "2": ": firefox",
-            "3": ": discord",
-            "4": ": spotify",
-            "5": ": thunderbird",
-            "default": ""
+        "format": "{name}",
+    },
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false,
+        "rewrite": {
+            "": "Desktop",
         }
     },
     "tray": {
