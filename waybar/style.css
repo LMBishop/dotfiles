@@ -10,6 +10,7 @@ window#waybar {
     border-bottom: 3px solid #434e59;
     transition-property: background-color;
     transition-duration: .5s;
+    background-clip: border-box;
 }
 
 window#waybar.hidden {
@@ -41,7 +42,7 @@ button {
     background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.focused {
+#workspaces button.active {
     background-color: #434e59;
 }
 
@@ -77,6 +78,14 @@ button {
 #window,
 #workspaces {
     margin: 0 4px;
+}
+
+#battery.charging.critical {
+    background: none;
+}
+
+#battery.critical {
+    background: #eb4d4b;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
