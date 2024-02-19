@@ -21,9 +21,9 @@ set $cl_urge #ee2e24
 #  Display  #
 #############
 
-font pango:Iosevka Nerd Font 0
+font pango:Iosevka Nerd Font 10
 
-titlebar_padding 1
+titlebar_padding 4
 
 gaps inner 15
 
@@ -61,7 +61,7 @@ for_window [app_id="termfloat"] floating enable
 for_window [app_id="termfloat"] resize set height 500
 for_window [app_id="termfloat"] resize set width 900
 
-default_border pixel 3
+default_border normal 3
 
 default_floating_border normal 3
 
@@ -159,8 +159,21 @@ bindsym Print+Control exec /usr/share/sway/scripts/grimshot --notify save area
 bindsym $mod+Shift+equal exec /usr/share/sway/scripts/grimshot --notify copy area
 bindsym $mod+Control+equal exec /usr/share/sway/scripts/grimshot --notify save area
 
+# Audio
 bindsym $mod+bracketleft exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+bracketright exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+# Playback
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec playerctl play-pause
+
+# Brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set 5-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5
 
 mode "resize" {
     bindsym $left  resize shrink width 10px

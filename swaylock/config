@@ -5,8 +5,6 @@ clock
 indicator
 show-failed-attempts
 
-fade-in=0.2
-
 indicator-radius=100
 indicator-thickness=7
 
