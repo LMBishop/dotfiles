@@ -1,0 +1,22 @@
+name: Copy scripts
+steps:
+  - !Link
+    from: "battery-notify.sh"
+    to: "~/bin/battery-notify.sh"
+    recursive: false
+  - !Link
+    from: "exit-menu.sh"
+    to: "~/bin/exit-menu.sh"
+    recursive: false
+  - !Link
+    from: "hyprctl-zoom-daemon.sh"
+    to: "~/bin/hyprctl-zoom-daemon.sh"
+    recursive: false
+  - !Link
+    from: "hyprctl-zoom.sh"
+    to: "~/bin/hyprctl-zoom.sh"
+    recursive: false
+  - !Link
+    from: "swayidle.sh"
+    to: "~/bin/swayidle.sh"
+    recursive: false

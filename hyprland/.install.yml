@@ -1,4 +1,4 @@
-name: Configure sway
+name: Configure hyprland
 steps:
   - !Link
     from: "hyprland.conf"
