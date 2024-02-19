@@ -1,6 +1,6 @@
 # dotfiles
 
-Dotfiles for my machines. These configurations have been tested on a regular PC, M1 Mac running Asahi Linux, and even a Steam Deck. 
+Dotfiles for my machines. These configurations have been used on a regular PC, Framework laptop, M1 Mac running Asahi Linux, and even a Steam Deck. 
 
 ## Programs
 
@@ -16,11 +16,14 @@ This repository contains configurations for the following programs, intended to 
 * [zsh](https://www.zsh.org/) (*shell*)
     * [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 
+Plus my own scripts in `bin`.
+
 ### Graphical
 
 * [alacritty](https://alacritty.org/) (*terminal emulator*)
 * [mako](https://github.com/emersion/mako) (*notifications*)
-* [sway](https://swaywm.org/) (*WM*)
+* ~~[sway](https://swaywm.org/)~~ (*WM, currently trying out hyprland instead*)
+* [hyprland](https://hyprland.org/) (*WM*)
 * [swaylock](https://github.com/swaywm/swaylock)
 * [swayidle](https://github.com/swaywm/swayidle)
 * [waybar](https://github.com/Alexays/Waybar) (*status bar*)
@@ -44,6 +47,8 @@ $ dotfiles-installer -f install-macos.yml
 ```
 
 ## Screenshots
+(Outdated.)
+
 ![](https://i.imgur.com/g6X81bT.png)
 ![](https://i.imgur.com/V1agzcF.png)
 ![](https://i.imgur.com/I08qlCp.png)
