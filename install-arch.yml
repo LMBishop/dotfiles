@@ -3,7 +3,7 @@ stages:
 
   - from_file: mako/.install.yml
 
-  - from_file: sway/.install.yml
+  - from_file: hyprland/.install.yml
 
   - from_file: swaylock/.install.yml
 
