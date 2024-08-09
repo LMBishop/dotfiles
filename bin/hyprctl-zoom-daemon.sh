@@ -26,11 +26,11 @@ do
     case $message in
         plus)
             izoom
-            hyprctl keyword misc:cursor_zoom_factor $zoom
+            hyprctl keyword cursor:zoom_factor $zoom
             ;;
         minus)
             dzoom
-            hyprctl keyword misc:cursor_zoom_factor $zoom
+            hyprctl keyword cursor:zoom_factor $zoom
             ;;
         *)
             echo "Invalid message received"
