@@ -55,6 +55,14 @@ button {
     background-color: #434e59;
 }
 
+#custom-idle-inhibitor.suspended {
+    background: #D54B00;
+}
+
+#custom-idle-inhibitor.stopped {
+    background: #eb4d4b;
+}
+
 #clock,
 #battery,
 #cpu,
