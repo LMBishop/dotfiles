@@ -1,16 +1,37 @@
 name: Configure hyprland
 steps:
+  # Hyprland
   - !Link
     from: "hyprland.conf"
     to: "~/.config/hypr/hyprland.conf"
     recursive: false
   - !Link
-    from: "binds.conf"
-    to: "~/.config/hypr/binds.conf"
+    from: "00-theme-vars.conf"
+    to: "~/.config/hypr/00-theme-vars.conf"
     recursive: false
   - !Link
-    from: "hyprpaper.conf"
-    to: "~/.config/hypr/hyprpaper.conf"
+    from: "01-system-vars.conf"
+    to: "~/.config/hypr/01-system-vars.conf"
+    recursive: false
+  - !Link
+    from: "10-startup.conf"
+    to: "~/.config/hypr/10-startup.conf"
+    recursive: false
+  - !Link
+    from: "11-startup.conf"
+    to: "~/.config/hypr/11-environment.conf"
+    recursive: false
+  - !Link
+    from: "20-binds.conf"
+    to: "~/.config/hypr/20-binds.conf"
+    recursive: false
+  - !Link
+    from: "21-rules.conf"
+    to: "~/.config/hypr/21-rules.conf"
+    recursive: false
+  - !Link
+    from: "22-theme.conf"
+    to: "~/.config/hypr/22-theme.conf"
     recursive: false
   - !Link
     from: "input.conf"
@@ -20,19 +41,25 @@ steps:
     from: "monitors.conf"
     to: "~/.config/hypr/monitors.conf"
     recursive: false
+
+  # Wallpaper
   - !Link
-    from: "rules.conf"
-    to: "~/.config/hypr/rules.conf"
-    recursive: false
-  - !Link
-    from: "settings.conf"
-    to: "~/.config/hypr/settings.conf"
-    recursive: false
-  - !Link
-    from: "startup.conf"
-    to: "~/.config/hypr/startup.conf"
+    from: "hyprpaper.conf"
+    to: "~/.config/hypr/hyprpaper.conf"
     recursive: false
   - !Link
     from: "wallpaper.jpg"
     to: "~/.config/hypr/wallpaper.jpg"
+    recursive: false
+
+  # Hypridle
+  - !Link
+    from: "hypridle.conf"
+    to: "~/.config/hypr/hypridle.conf"
+    recursive: false
+
+  # Hyprlock
+  - !Link
+    from: "hyprlock.conf"
+    to: "~/.config/hypr/hyprlock.conf"
     recursive: false
