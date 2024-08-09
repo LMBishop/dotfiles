@@ -17,6 +17,7 @@ window {
 #input {
     border: none;
     background-color: #434e59;
+    box-shadow: none;
     opacity: 1;
     border-radius: 0;
 }

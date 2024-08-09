@@ -4,5 +4,6 @@ insensitive=true
 dynamic_lines=true
 no_actions=true
 location=2
+single_click=true
 
 drun-display_generic=true
