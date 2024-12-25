@@ -20,27 +20,39 @@ Plus my own scripts in `bin`.
 
 ### Graphical
 
-* [alacritty](https://alacritty.org/) (*terminal emulator*)
+* [kitty](https://sw.kovidgoyal.net/kitty/) (*terminal emulator*)
 * [mako](https://github.com/emersion/mako) (*notifications*)
-* ~~[sway](https://swaywm.org/)~~ (*WM, currently trying out hyprland instead*)
-* [hyprland](https://hyprland.org/) (*WM*)
+* [sway](https://swaywm.org/) (*WM*)
 * [swaylock](https://github.com/swaywm/swaylock)
 * [swayidle](https://github.com/swaywm/swayidle)
 * [waybar](https://github.com/Alexays/Waybar) (*status bar*)
 * [wofi](https://sr.ht/~scoopta/wofi/) (*launcher*)
+* ~~[alacritty](https://alacritty.org/)~~ (*terminal emulator, not currently in use*)
+* ~~[hyprland](https://hyprland.org/)~~ (*WM, not currently in use*)
 * ~~[iTerm2](https://iterm2.com/)~~ (*terminal emulator, not currently in use*)
 * ~~[rofi](https://github.com/davatorium/rofi)~~ (*launcher, not currently in use*)
+
+### Other
+
+* This repository also contains some systemd unit files.
 
 ## Install
 
 This repository is designed to be installed with my own [dotfiles-installer](https://github.com/LMBishop/dotfiles-installer) program. Unless you happen to be me, I wouldn't suggest using this.
 
-Arch / Asahi:
+### Arch / Asahi
+
+```
+# dotfiles-installer -f install-arch-system.yml
+```
+
+Then:
+
 ```
 $ dotfiles-installer -f install-arch.yml
 ```
 
-macOS - requires the Xcode command line tools:
+### macOS - requires the Xcode command line tools
 
 ```
 $ dotfiles-installer -f install-macos.yml
