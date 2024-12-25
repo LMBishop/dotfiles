@@ -39,3 +39,12 @@ stages:
         symbolic: true
 
   - from_file: zsh/.install.yml
+
+  - name: Link ~/bin
+    steps:
+      - !Link
+        from: "bin"
+        to: "~/.config/bin"
+        symbolic: true
+
+      - !Shell "mkdir $HOME/bin/compiled"

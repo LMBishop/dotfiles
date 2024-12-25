@@ -6,7 +6,7 @@ ZSH_CONFIG=$HOME/.config/zsh
 export ZSH="$HOME/.oh-my-zsh"
 
 # User /bin
-export PATH="$HOME/bin:$PATH:/home/leonardo/.local/bin"
+export PATH="$HOME/bin:$HOME/bin/compiled:$PATH:/home/leonardo/.local/bin"
 
 # Exa colours
 export EXA_COLORS="uu=37:un=37:gu=37:gn=37:da=37"
