@@ -1,23 +1,22 @@
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp' 
-  use 'saadparwaiz1/cmp_luasnip' 
-  use 'onsails/lspkind.nvim'
-  use 'L3MON4D3/LuaSnip' 
-  use {
-    'folke/trouble.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require('trouble').setup {
-}
-    end
-  }
-  use 'p00f/clangd_extensions.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
-  use { 'briones-gabriel/darcula-solid.nvim', requires = 'rktjmp/lush.nvim' }
-  use 'joshdick/onedark.vim'
-end)
+local vim = vim
+local Plug = vim.fn['plug#']
+
+vim.call('plug#begin')
+
+Plug('vim-airline/vim-airline')
+Plug('vim-airline/vim-airline-themes')
+Plug('neovim/nvim-lspconfig')
+Plug('hrsh7th/nvim-cmp')
+Plug('hrsh7th/cmp-nvim-lsp')
+Plug('saadparwaiz1/cmp_luasnip')
+Plug('onsails/lspkind.nvim')
+Plug('L3MON4D3/LuaSnip')
+Plug('p00f/clangd_extensions.nvim')
+Plug('nvim-treesitter/nvim-treesitter')
+Plug('briones-gabriel/darcula-solid.nvim')
+Plug('rktjmp/lush.nvim')
+Plug('joshdick/onedark.vim')
+Plug('lervag/vimtex')
+
+vim.call('plug#end')
+

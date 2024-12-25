@@ -1,7 +1,12 @@
 require('plugins')
 
+
+require('keybindings')
+require('config')
+
 vim.api.nvim_exec(
 [[
+silent!
 syntax on
 
 set number
@@ -19,10 +24,7 @@ set termguicolors
 colorscheme onedark
 highlight Normal guibg=NONE
 highlight Comment cterm=italic gui=italic
+
+let g:vimtex_view_method = 'zathura'
 ]],
 false)
--- 
-
-require('keybindings')
-require('config')
-
