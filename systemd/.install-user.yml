@@ -1,0 +1,6 @@
+name: Install user systemd services
+steps:
+  - !Copy
+    from: "user/battery-notify.service"
+    to: "~/.config/systemd/user/battery-notify.service"
+

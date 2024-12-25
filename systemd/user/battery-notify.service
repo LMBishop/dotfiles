@@ -1,0 +1,11 @@
+[Unit]
+Description=Battery notification daemon
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/leonardo/bin/battery-notify.sh
+
+[Install]
+WantedBy=sway-session.target
+

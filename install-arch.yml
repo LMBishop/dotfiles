@@ -48,3 +48,7 @@ stages:
         symbolic: true
 
       - !Shell "mkdir $HOME/bin/compiled"
+
+  - from_file: systemd/.install-user.yml
+  - from_file: systemd/.enable-user.yml
+

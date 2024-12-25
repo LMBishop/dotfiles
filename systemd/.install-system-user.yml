@@ -1,0 +1,18 @@
+name: Install system-wide user systemd services
+steps:
+  - !Copy
+    from: "system-user/mako.service"
+    to: "/etc/systemd/user/mako.service"
+
+  - !Copy
+    from: "system-user/sway-session.target"
+    to: "/etc/systemd/user/sway-session.target"
+
+  - !Copy
+    from: "system-user/swayidle.service"
+    to: "/etc/systemd/user/swayidle.service"
+
+  - !Copy
+    from: "system-user/waybar.service"
+    to: "/etc/systemd/user/waybar.service"
+

@@ -1,0 +1,7 @@
+name: Enable user systemd services
+steps:
+  - !Shell "systemctl enable --user battery-notify.service"
+  - !Shell "systemctl enable --user mako.service"
+  - !Shell "systemctl enable --user swaylock.service"
+  - !Shell "systemctl enable --user waybar.service"
+
