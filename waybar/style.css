@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Iosevka Nerd Font;
+    font-family: Iosevka SS08;
     font-size: 13px;
 }
 
@@ -42,7 +42,7 @@ button {
     background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.active {
+#workspaces button.focused, button.active {
     background-color: #434e59;
 }
 
@@ -55,7 +55,7 @@ button {
     background-color: #434e59;
 }
 
-#custom-idle-inhibitor.suspended {
+#custom-idle-inhibitor.suspended, #idle_inhibitor.activated {
     background: #D54B00;
 }
 
@@ -83,17 +83,35 @@ button {
     color: #ffffff;
 }
 
+#pulseaudio.muted {
+    color: #434e59;
+}
+
+#pulseaudio.warning {
+    color: #FFBF00;
+}
+
 #window,
 #workspaces {
     margin: 0 4px;
 }
 
-#battery.charging.critical {
-    background: none;
+#battery.low:not(.charging) {
+    color: #eb4d4b;
 }
 
-#battery.critical {
+#battery.warning:not(.charging) {
     background: #eb4d4b;
+}
+
+#battery.critical:not(.charging) {
+    background: #eb4d4b;
+    color: #ffffff;
+    animation-name: critical-blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(2, start);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -106,10 +124,10 @@ button {
     margin-right: 0;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
+@keyframes critical-blink {
+    50% {
+        background: none;
+        color: #eb4d4b;
     }
 }
 

@@ -1,10 +1,26 @@
 {
     "height": 30, 
-    "spacing": 4, 
+    "spacing": 0, 
     "layer": "top",
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["sway/workspaces", "sway/mode", "hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/idle-inhibitor", "network#vpnovpn", "network#vpnwg", "network#e", "network#wl", "network", "cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
+    "modules-right": ["tray", "idle_inhibitor", "network#vpnovpn", "network#vpnwg", "network#e", "network#wl", "network", "cpu", "memory", "pulseaudio", "battery", "power-profiles-daemon", "clock"],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{name}",
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": " ",
+        "performance": " ",
+        "balanced": "",
+        "power-saver": " "
+      }
+    },
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -19,7 +35,7 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%d %b  %H:%M:%OS}",
-        "format-alt": "{:%Y-%m-%d}",
+        "format-alt": "{:%Y-%m-%d %H:%M:%OS}",
         "interval": 1
     },
     "battery": {
@@ -27,10 +43,12 @@
         "states": {
             "full": 100,
             "normal": 99,
-            "warning": 30,
-            "critical": 15,
+            "low": 20,
+            "warning": 10,
+            "critical": 5,
         },
         "format": "{icon} {capacity}%",
+        "format-alt": "{icon} {capacity}% ({power:0.1f} W)",
         "design-capacity": false,
         "format-charging": "{icon} {capacity}% ",
         "format-charging-full": "󱟢 {capacity}% ",
@@ -86,17 +104,21 @@
         "format-disconnected": "",
     },
     "network#vpnwg": {
-        "interface": "*-wg-*",
-        "format": "",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "interface": "wg*",
+        "format": "󰟥  {ifname}",
+        "format-alt": "󰟥  {ifname}: {ipaddr}/{cidr}",
         "format-linked": "",
         "format-disconnected": "",
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%  {format_source}",
-        "format-bluetooth": " {volume}%  {format_source}",
-        "format-bluetooth-muted": " 0%  {format_source}",
-        "format-muted": "󰝟   {format_source}",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": " {volume}%",
+        "format-bluetooth-muted": " 0%",
+        "format-muted": "󰝟 ",
+        // "format": "{icon} {volume}%  {format_source}",
+        // "format-bluetooth": " {volume}%  {format_source}",
+        // "format-bluetooth-muted": " 0%  {format_source}",
+        // "format-muted": "󰝟   {format_source}",
         "format-source": " {volume}%",
         "format-source-muted": " 0%",
         "format-icons": {
@@ -108,10 +130,21 @@
             "car": " ",
             "default": [" ", " ", " "]
         },
+        "states": {
+            "normal": 100,
+            "warning": 1000
+        },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "pavucontrol",
         "ignored-sinks": ["Easy Effects Sink"],
         "scroll-step": 0.5
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "deactivated": "󰒲 ",
+            "activated": "󰒳 "
+        }
     },
     "custom/idle-inhibitor": {
         "exec": "~/bin/get-inhibit-idle-status.sh",

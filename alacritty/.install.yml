@@ -4,3 +4,4 @@ steps:
     from: "alacritty.yml"
     to: "~/.config/alacritty/alacritty.yml"
     recursive: false
+

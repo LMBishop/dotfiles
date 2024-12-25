@@ -9,5 +9,10 @@ icons=1
 icon-location=right
 max-icon-size=64
 default-timeout=5000
-ignore-timeout=1
+ignore-timeout=0
 font=Iosevka Nerd Font 12
+
+[urgency=critical]
+background-color=#eb4d4bf0
+border-color=#d63134
+

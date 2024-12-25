@@ -1,16 +1,41 @@
 stages:
-  - from_file: alacritty/.install.yml
+  - name: Configure kitty
+    steps:
+      - !Link
+        from: "kitty"
+        to: "~/.config/kitty"
+        symbolic: true
 
-  - from_file: mako/.install.yml
+  - name: Configure mako
+    steps:
+      - !Link
+        from: "mako"
+        to: "~/.config/mako"
+        symbolic: true
 
-  - from_file: hyprland/.install.yml
+  - from_file: sway/.install.yml
 
-  - from_file: swaylock/.install.yml
+  - name: Configure swaylock
+    steps:
+      - !Link
+        from: "swaylock"
+        to: "~/.config/swaylock"
+        symbolic: true
 
   - from_file: vim/.install.yml
 
-  - from_file: waybar/.install.yml
+  - name: Configure waybar
+    steps:
+      - !Link
+        from: "waybar"
+        to: "~/.config/waybar"
+        symbolic: true
 
-  - from_file: wofi/.install.yml
+  - name: Configure wofi
+    steps:
+      - !Link
+        from: "wofi"
+        to: "~/.config/wofi"
+        symbolic: true
 
   - from_file: zsh/.install.yml

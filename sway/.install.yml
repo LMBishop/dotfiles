@@ -3,20 +3,20 @@ steps:
   - !Link
     from: "config"
     to: "~/.config/sway/config"
-    recursive: false
   - !Link
-    from: "scripts/exit-menu.sh"
-    to: "~/.config/sway/scripts/exit-menu.sh"
-    recursive: false
+    from: "conf.d"
+    to: "~/.config/sway/conf.d"
+    symbolic: true
   - !Copy
     from: "wallpaper.jpg"
     to: "~/.config/sway/wallpaper.jpg"
     recursive: false
   - !Copy
-    from: "input.cfg"
-    to: "~/.config/sway/input.cfg"
+    from: "input.conf"
+    to: "~/.config/sway/input.conf"
     recursive: false
   - !Copy
-    from: "output.cfg"
-    to: "~/.config/sway/output.cfg"
+    from: "output.conf"
+    to: "~/.config/sway/output.conf"
     recursive: false
+

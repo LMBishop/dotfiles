@@ -9,7 +9,6 @@ indicator-radius=100
 indicator-thickness=7
 
 effect-blur=7x5
-effect-greyscale
 
 key-hl-color=dddddd
 
