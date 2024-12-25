@@ -18,3 +18,6 @@ alias lt="exa --tree --level=2"
 
 # ParUI
 alias pi="parui -p=yay"
+
+# Zsh
+alias cathex="while read -r line; do echo -e $line; done"
