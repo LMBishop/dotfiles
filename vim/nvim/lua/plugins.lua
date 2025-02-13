@@ -17,6 +17,7 @@ Plug('briones-gabriel/darcula-solid.nvim')
 Plug('rktjmp/lush.nvim')
 Plug('joshdick/onedark.vim')
 Plug('lervag/vimtex')
+Plug('preservim/nerdtree', { ['on'] = 'NERDTreeToggle' })
 
 vim.call('plug#end')
 
