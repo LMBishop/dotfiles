@@ -7,9 +7,9 @@ PartOf=graphical-session.target
 Type=simple
 ExecStart=/usr/bin/swayidle -w \
             timeout 300 "notify-send 'Power' 'System will suspend very soon due to inactivity.'" \
-            timeout 315 "swaylock" \
-            timeout 320 "swaymsg 'output * power off'" resume "swaymsg 'output * power on'" \
-            before-sleep "swaylock"
+            timeout 315 "hyprlock" \
+            timeout 320 "sytemctl suspend && swaymsg 'output * power off'" resume "swaymsg 'output * power on'" \
+            before-sleep "hyprlock"
 
 
 [Install]
