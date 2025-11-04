@@ -22,3 +22,4 @@ end
 for file in $ZSH_CONFIG/other/*; do
     source "$file"
 done
+

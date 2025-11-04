@@ -131,6 +131,12 @@ button {
     }
 }
 
+@keyframes blink {
+    50% {
+        color: #434e59;
+    }
+}
+
 label:focus {
     background-color: #000000;
 }

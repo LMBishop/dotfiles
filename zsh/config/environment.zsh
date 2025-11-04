@@ -6,7 +6,7 @@ ZSH_CONFIG=$HOME/.config/zsh
 export ZSH="$HOME/.oh-my-zsh"
 
 # User /bin
-export PATH="$HOME/bin:$HOME/bin/compiled:$PATH:/home/leonardo/.local/bin:/home/leonardo/.local/share/gem/ruby/3.3.0/bin"
+export PATH="$HOME/bin:$HOME/bin/compiled:$PATH:/home/leonardo/.local/bin:/home/leonardo/.local/share/gem/ruby/3.3.0/bin:/home/leonardo/.cargo/bin:$HOME/go/bin"
 
 # Exa colours
 export EXA_COLORS="uu=37:un=37:gu=37:gn=37:da=37"
@@ -16,3 +16,6 @@ export MOZ_ENABLE_WAYLAND=1
 
 # bundle
 export GEM_HOME=$HOME/.gem
+
+export EDITOR="vim"
+

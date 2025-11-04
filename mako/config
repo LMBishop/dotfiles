@@ -11,8 +11,16 @@ max-icon-size=64
 default-timeout=5000
 ignore-timeout=0
 font=Iosevka Nerd Font 12
+on-button-left=exec makoctl menu -n $id -- wofi --width 200 --height 200 -d -p 'Choose action' && makoctl dismiss -n $id
 
 [urgency=critical]
 background-color=#eb4d4bf0
 border-color=#d63134
+
+[actionable]
+border-color=#ffffff
+
+[actionable expiring]
+border-color=#434e59
+on-button-left=invoke-default-action
 

@@ -19,7 +19,7 @@ highlight NormalFloat ctermbg=NONE
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set smarttab
 
 set signcolumn=number
 let g:airline_theme='lucius'

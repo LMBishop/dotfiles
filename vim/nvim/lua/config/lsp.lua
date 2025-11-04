@@ -43,6 +43,9 @@ require('lspconfig')['pylsp'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
+    settings = {
+        pylsp_mypy = { enabled = true },
+    }
 }
 
 require('lspconfig')['yamlls'].setup{

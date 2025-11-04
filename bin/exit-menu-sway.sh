@@ -7,11 +7,13 @@ selected=$(echo -e $entries|wofi --width 100 --height 212 --dmenu --cache-file /
 
 case $selected in
   lock)
-    hyprlock;;
+    loginctl lock-session;;
   logout)
-    hyprctl dispatch exit;;
+    swaymsg exit;;
+#  suspend-then-hibernate)
+#    exec systemctl suspend-then-hibernate;;
   suspend)
-    exec systemctl suspend-then-hibernate;;
+    exec systemctl suspend;;
   hibernate)
     exec systemctl hibernate;;
   reboot)

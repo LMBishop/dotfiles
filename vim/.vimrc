@@ -3,10 +3,10 @@ syntax on
 set number
 highlight LineNr ctermfg=darkgrey
 
-filetype plugin indent on
+" filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set smarttab
 
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>

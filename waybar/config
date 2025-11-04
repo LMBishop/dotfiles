@@ -2,7 +2,7 @@
     "height": 30, 
     "spacing": 0, 
     "layer": "top",
-    "modules-left": ["sway/workspaces", "sway/mode", "hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["sway/workspaces", "sway/mode", "hyprland/workspaces", "hyprland/window", "mpris"],
     "modules-center": [],
     "modules-right": ["tray", "idle_inhibitor", "network#vpnovpn", "network#vpnwg", "network#e", "network#wl", "network", "cpu", "memory", "pulseaudio", "battery", "power-profiles-daemon", "clock"],
     "sway/workspaces": {
@@ -80,7 +80,7 @@
     },
     "network#e": {
         "interface": "e*",
-        "format-ethernet": "󰛳  {ipaddr}",
+        "format": "󰛳  {ipaddr}",
         "tooltip-format": "{ipaddr}: {ifname} via {gwaddr}",
         "format-linked": "󰲛  {ifname} (No IP)",
         "format-alt": "󰛳  {ifname}: {ipaddr}/{cidr}",
@@ -89,12 +89,13 @@
     },
     "network#wl": {
         "interface": "wlp1s0",
-        "format-wifi": "󰖩  {essid} ({signalStrength}%)",
+        "format": "󰖩  {essid} ({signalStrength}%)",
         "tooltip-format": "{ipaddr}: {ifname} via {gwaddr}",
         "format-linked": "󰖪  {ifname} (No IP)",
         "format-alt": "󰖩  {ifname}: {ipaddr}/{cidr}",
         "on-click-right": "alacritty -e /bin/bash -c \"/usr/bin/sleep 0.5 && /usr/bin/nmtui\"",
         "format-disconnected": "",
+        "format-disabled": "",
     },
     "network#vpnovpn": {
         "interface": "tun0",
@@ -102,6 +103,7 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "format-linked": "",
         "format-disconnected": "",
+        "format-disabled": "",
     },
     "network#vpnwg": {
         "interface": "wg*",
@@ -109,6 +111,7 @@
         "format-alt": "󰟥  {ifname}: {ipaddr}/{cidr}",
         "format-linked": "",
         "format-disconnected": "",
+        "format-disabled": "",
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -139,6 +142,18 @@
         "ignored-sinks": ["Easy Effects Sink"],
         "scroll-step": 0.5
     },
+	"mpris": {
+		"format": " {player_icon} {artist} - {title} ",
+		"format-paused": " {status_icon}{player_icon} <i>{artist} - {title}</i> ",
+		"player-icons": {
+			"default": "󰝚 ",
+			"spotify": "󰓇 ",
+		},
+		"status-icons": {
+			"paused": "⏸ "
+		},
+		"ignored-players": ["firefox"]
+	},
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
