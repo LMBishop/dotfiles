@@ -8,6 +8,18 @@ current_time() {
    echo "%{$fg[white]%}[%*]"
 }
 
+container_l() {
+  if [[ -n "${CONTAINER_ID:-}" ]]; then
+    echo "%{$fg[cyan]%}*%{$reset_color%} "
+  fi
+}
+
+container_r() {
+  if [[ -n "${CONTAINER_ID:-}" ]]; then
+    echo "(%{$fg[cyan]%}$CONTAINER_ID%{$reset_color%}) "
+  fi
+}
+
 return_status() {
   local LAST_EXIT_CODE=$?
   if [[ $LAST_EXIT_CODE -ne 0 ]]; then
@@ -28,8 +40,8 @@ precmd() {
             VCS_STATUS="(%F{green}${vcs_info_msg_0_}%f) "
         fi
     fi
-    PROMPT='%B$(directory)%b %# %f'
-    RPROMPT='$(return_status)${VCS_STATUS}$(current_time)%f'
+    PROMPT='$(container_l)%B$(directory)%b %# %f'
+    RPROMPT='$(return_status)${VCS_STATUS}$(container_r)$(current_time)%f'
 }
 
 zstyle ':vcs_info:*' check-for-changes true
