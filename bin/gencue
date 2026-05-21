@@ -1,0 +1,72 @@
+#!/bin/bash
+
+set -eu
+
+# https://gitlab.com/drjaska-projects/configs/homefolder/-/blob/master/bin/gencue
+
+# Generates disc.cue file based on args
+#
+# Usage example:
+#
+#   $ gencue *.flac
+#
+# Example output:
+#
+# REM COMMENT "Generated from individual file metadata"
+# FILE "filename1.ext" WAVE
+#   TRACK "01" AUDIO
+#     TITLE "Tracktitle"
+#     PERFORMER "Artistname"
+#     INDEX 01 00:00:00
+# FILE "filename2.ext" WAVE
+#   TRACK "02" AUDIO
+#     TITLE "Trackname"
+#     PERFORMER "Artistname"
+#     INDEX 01 00:00:00
+
+
+# Sanity check usage
+if [ "$#" = "0" ]
+then
+	echo "$0: No arguments given, aborting empty disc generation"
+	exit 1
+fi
+
+# Output filename
+discname=disc.cue
+
+# Start the file, possibly clearing previous output
+echo 'REM COMMENT "Generated from individual file metadata"' > "$discname"
+
+# NOTE: I have chosen to disregard writing album level metadata.
+# Individual files have a single source of truth in themselves.
+
+# Append arguments to file in appropriate format
+index=0
+for file in "$@"
+do
+	((index += 1))
+	tags="$(ffprobe -i "$file" -show_entries format -v quiet -of json | jq -r .format.tags)"
+
+	# Start track
+	printf 'FILE "%s" WAVE\n'     "$file"
+	printf '  TRACK %02d AUDIO\n' "$index"
+
+	# Optional CD-Text based tags
+	if jq -er '.TITLE // .title' <<< "$tags" >/dev/null
+	then
+		printf '    TITLE "%s"\n' "$(jq -er '.TITLE // .title' <<< "$tags")"
+	fi
+	if jq -er '.ARTIST // .artist' <<< "$tags" >/dev/null
+	then
+		printf '    PERFORMER "%s"\n' "$(jq -er '.ARTIST // .artist' <<< "$tags")"
+	fi
+	if jq -er '.ISRC // .isrc' <<< "$tags" >/dev/null
+	then
+		printf '    ISRC "%s"\n' "$(jq -er '.ISRC // .isrc' <<< "$tags")"
+	fi
+
+	# End track
+	printf '    INDEX 01 00:00:00\n'
+done >> "$discname"
+

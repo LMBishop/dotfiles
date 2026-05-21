@@ -1,0 +1,13 @@
+#!/bin/bash
+
+podman run \
+	-v ${PWD}/pages:/app/pages \
+	-v ${PWD}/static:/app/static \
+	-v ${PWD}/views:/app/views \
+	-v ${PWD}/build:/app/build:rw \
+	repo.leonardobishop.net/docker/panulat:1.7 \
+	--staticDir /app/static \
+	--viewsDir /app/views \
+	--pagesDir /app/pages \
+	--buildDir /app/build \
+	"$@"
