@@ -2,12 +2,13 @@
 source $HOME/.config/zsh/environment.zsh
 
 # Load plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # Source configurations
 typeset -ga sources
+sources+="$ZSH_CONFIG/plugins.zsh"
 sources+="$ZSH_CONFIG/environment.zsh"
 sources+="$ZSH_CONFIG/prompt.zsh"
 sources+="$ZSH_CONFIG/aliases.zsh"

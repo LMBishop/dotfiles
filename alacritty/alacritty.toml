@@ -1,0 +1,59 @@
+[colors.bright]
+black = "#676767"
+blue = "#7eaff4"
+cyan = "#8ef9fd"
+green = "#81e397"
+magenta = "#fd9cff"
+red = "#fd8784"
+white = "#ffffff"
+yellow = "#fefb00"
+
+[colors.cursor]
+cursor = "#fefefe"
+text = "#000000"
+
+[colors.normal]
+black = "#000000"
+blue = "#5496ef"
+cyan = "#39cbcc"
+green = "#57bf37"
+magenta = "#fd75ff"
+red = "#fd6b67"
+white = "#eeeeee"
+yellow = "#ccca00"
+
+[colors.primary]
+background = "#27292b"
+bright_foreground = "#ffffff"
+foreground = "#ffffff"
+
+[font]
+size = 11
+
+[font.bold]
+family = "Iosevka SS08"
+style = "Bold"
+
+[font.bold_italic]
+family = "Iosevka SS08"
+style = "Bold Italic"
+
+[font.italic]
+family = "Iosevka SS08"
+style = "Italic"
+
+[font.normal]
+family = "Iosevka SS08"
+style = "Regular"
+
+[terminal.shell]
+program = "/usr/bin/zsh"
+
+[window]
+opacity = 0.95
+
+[window.padding]
+x = 5
+y = 5
+
+[terminal]

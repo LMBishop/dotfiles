@@ -10,10 +10,11 @@ case $selected in
     loginctl lock-session;;
   logout)
     swaymsg exit;;
-#  suspend-then-hibernate)
-#    exec systemctl suspend-then-hibernate;;
+  #suspend-then-hibernate)
   suspend)
-    exec systemctl suspend;;
+    exec systemctl suspend-then-hibernate;;
+  #suspend)
+  #  exec systemctl suspend;;
   hibernate)
     exec systemctl hibernate;;
   reboot)
