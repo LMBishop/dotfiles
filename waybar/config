@@ -4,7 +4,7 @@
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode", "hyprland/workspaces", "hyprland/window", "mpris"],
     "modules-center": [],
-    "modules-right": ["tray", "idle_inhibitor", "network#vpnovpn", "network#vpnwg", "network#e", "network#wl", "network", "cpu", "memory", "pulseaudio", "battery", "power-profiles-daemon", "clock"],
+    "modules-right": ["tray", "idle_inhibitor", "network#vpnovpn", "network#vpnbounce", "network#vpnwg", "network#e", "network#wl", "network", "cpu", "memory", "pulseaudio", "battery", "power-profiles-daemon", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -109,6 +109,14 @@
         "interface": "wg*",
         "format": "󰟥  {ifname}",
         "format-alt": "󰟥  {ifname}: {ipaddr}/{cidr}",
+        "format-linked": "",
+        "format-disconnected": "",
+        "format-disabled": "",
+    },
+    "network#vpnbounce": {
+        "interface": "bounce*",
+        "format": "  {ifname}",
+        "format-alt": "  {ifname}: {ipaddr}/{cidr}",
         "format-linked": "",
         "format-disconnected": "",
         "format-disabled": "",
