@@ -1,4 +1,5 @@
 autoload -Uz vcs_info
+autoload -U colors && colors
 
 directory() {
    echo "%{$fg_bold[magenta]%}%~%{$reset_color%}"

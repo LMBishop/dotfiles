@@ -1,17 +1,20 @@
 # Source environment
 source $HOME/.config/zsh/environment.zsh
 
-# Load plugins
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ 
 # Source configurations
 typeset -ga sources
 sources+="$ZSH_CONFIG/plugins.zsh"
 sources+="$ZSH_CONFIG/environment.zsh"
 sources+="$ZSH_CONFIG/prompt.zsh"
 sources+="$ZSH_CONFIG/aliases.zsh"
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
  
 foreach file (`echo $sources`)
     if [[ -a $file ]]; then
