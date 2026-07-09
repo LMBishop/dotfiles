@@ -1,4 +1,4 @@
-**This repository is hosted at <https://git.leonardobishop.net/dotfiles/>.**
+**This repository is hosted at [git.leonardobishop.net](https://git.leonardobishop.net/dotfiles/).**
 
 # dotfiles
 
