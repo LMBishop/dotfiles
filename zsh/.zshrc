@@ -15,6 +15,9 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
  
 foreach file (`echo $sources`)
     if [[ -a $file ]]; then

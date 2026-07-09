@@ -1,3 +1,5 @@
+**This repository is hosted at <https://git.leonardobishop.net/dotfiles/>.**
+
 # dotfiles
 
 Dotfiles for my machines. These configurations have been used on a regular PC, Framework laptop, M1 Mac running Asahi Linux, and even a Steam Deck. 
