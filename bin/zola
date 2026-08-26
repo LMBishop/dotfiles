@@ -1,0 +1,7 @@
+#!/bin/bash
+
+podman run \
+	-v ${PWD}:/srv:rw \
+	-p 1111:1111 \
+	zola:latest \
+	"$@"
