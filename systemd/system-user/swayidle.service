@@ -5,7 +5,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/swayidle -w \
+ExecStart=/usr/bin/swayidle \
             timeout 300 "notify-send 'Power' 'System will suspend very soon due to inactivity.'" \
             timeout 310 "systemctl suspend-then-hibernate" \
             before-sleep "loginctl lock-session" \
