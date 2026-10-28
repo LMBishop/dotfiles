@@ -1,4 +1,4 @@
-FROM archlinux:base
+FROM docker.io/archlinux:base
 
 ARG UID="1000"
 ARG GID="1000"

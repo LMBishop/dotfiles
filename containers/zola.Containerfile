@@ -2,7 +2,7 @@ FROM docker.io/alpine:3.23.5 AS base
 
 WORKDIR /app
 
-RUN wget https://github.com/getzola/zola/releases/download/v0.22.1/zola-v0.22.1-x86_64-unknown-linux-musl.tar.gz && \
+RUN wget https://github.com/getzola/zola/releases/download/v0.23.5/zola-v0.23.5-x86_64-unknown-linux-musl.tar.gz && \
     tar xzvf *.tar.gz
 
 RUN cat <<'EOF' > /entrypoint.sh
